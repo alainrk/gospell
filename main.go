@@ -96,7 +96,12 @@ func main() {
 	for i, letter := range options.input {
 		l := string(letter)
 		L := strings.ToUpper(l)
-		fmt.Printf("%v.\t %v\n", i, alphabet[L])
+		_, ok := alphabet[L]
+		char := alphabet[L]
+		if !ok {
+			char = l
+		}
+		fmt.Printf("%v.\t %v\n", i, char)
 	}
 	fmt.Println()
 }
